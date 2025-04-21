@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Certificates</title>
+  <style>
+    :root {
+      --background-color: #f5f5f5;
+      --text-color: #333;
+      --card-background-color: white;
+      --card-shadow-color: rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--background-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 20px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--text-color);
+    }
+
+    .certificates-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: var(--card-background-color);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px var(--card-shadow-color);
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .card img:hover {
+      border: 2px solid #007bff;
+    }
+
+    .card p {
+      padding: 10px;
+      text-align: center;
+      font-size: 16px;
+      color: var(--text-color);
+    }
+
+    .card p strong {
+      color: #000;
+    }
+
+    /* زر الوضع الليلي/النهاري */
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toggle-btn:hover {
+      background: #0056b3;
+    }
+
+    /* الوضع الليلي */
+    .dark-mode {
+      --background-color: #121212;
+      --text-color: #f5f5f5;
+      --card-background-color: #1e1e1e;
+      --card-shadow-color: rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-btn" id="themeToggle">
+    🌙 Night Mode
+  </button>
+  <h1>My Certificates</h1>
+  <div class="certificates-container">
+    <div class="card">
+      <img src="baf21351-2239-42f4-b425-b06971247b46.jpg" alt="Certificate 1" />
+      <p><strong>Web Design (Front End)</strong> - 48 Hours - Grade: Excellent</p>
+    </div>
+    <div class="card">
+      <img src="e230e32f-49ee-411e-ab93-307a4bfbab77.jpg" alt="Certificate 2" />
+      <p><strong>Graphics Package</strong> - 48 Hours - Grade: Excellent</p>
+    </div>
+    <div class="card">
+      <img src="fdf2523a-6a0e-436c-845b-d9cbc5cd34e5.jpg" alt="Certificate 3" />
+      <p><strong>React.js</strong> - 28 Hours - Grade: Good</p>
+    </div>
+  </div>
+
+  <script>
+    const themeToggle = document.getElementById("themeToggle");
+
+    themeToggle.addEventListener("click", () => {
+      const isDarkMode = document.body.classList.toggle("dark-mode");
+      themeToggle.innerHTML = isDarkMode 
+        ? "☀️ Light Mode" 
+        : "🌙 Night Mode";
+    });
+  </script>
+</body>
+</html>
